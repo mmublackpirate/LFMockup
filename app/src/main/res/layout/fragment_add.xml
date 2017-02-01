@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_close"
+            android:scaleType="centerInside"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:text="Add Photos and Vidoes"/>
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:text="Next"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:enabled="false"
+            android:textColor="@color/button_color"
+            android:layout_gravity="right"
+            android:textSize="16sp"/>
+    </android.support.v7.widget.Toolbar>
+    <com.yemyatthu.lomotifmockup.view.SwipeDisablePager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
