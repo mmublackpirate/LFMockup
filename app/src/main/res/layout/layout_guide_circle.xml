@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <TextView
         android:id="@+id/pick_video"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:background="@drawable/empty_circle_white"
         android:alpha="0"
-        android:text="Pick \nVideo"/>
+        android:background="@drawable/empty_circle_white"
+        android:gravity="center"
+        android:text="Pick \nVideo"
+        android:textColor="@android:color/white" />
+
     <me.zhanghai.android.materialprogressbar.MaterialProgressBar
         android:id="@+id/first_progress"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding"
         android:layout_width="32dp"
         android:layout_height="8dp"
-        android:minHeight="8dp"
         android:maxHeight="8dp"
+        android:minHeight="8dp"
         app:mpb_progressStyle="horizontal"
-        app:mpb_showProgressBackground="false"
         app:mpb_progressTint="@color/colorPrimary"
-        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding"
-        />
+        app:mpb_showProgressBackground="false" />
+
     <TextView
         android:id="@+id/pick_music"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:background="@drawable/empty_circle_white"
         android:alpha="0"
-        android:text="Pick \nMusic"/>
+        android:background="@drawable/empty_circle_white"
+        android:gravity="center"
+        android:text="Pick \nMusic"
+        android:textColor="@android:color/white" />
+
     <me.zhanghai.android.materialprogressbar.MaterialProgressBar
         android:id="@+id/second_progress"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding"
         android:layout_width="32dp"
         android:layout_height="8dp"
-        android:minHeight="8dp"
         android:maxHeight="8dp"
+        android:minHeight="8dp"
         app:mpb_progressStyle="horizontal"
-        app:mpb_showProgressBackground="false"
         app:mpb_progressTint="@color/colorPrimary"
-        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding"
-        />
+        app:mpb_showProgressBackground="false" />
+
     <TextView
         android:id="@+id/make_video"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:background="@drawable/empty_circle_white"
         android:alpha="0"
-        android:text="Make \nVideo"/>
+        android:background="@drawable/empty_circle_white"
+        android:gravity="center"
+        android:text="Make \nVideo"
+        android:textColor="@android:color/white" />
 </merge>

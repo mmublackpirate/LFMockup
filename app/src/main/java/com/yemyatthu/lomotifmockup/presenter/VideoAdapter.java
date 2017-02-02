@@ -19,7 +19,7 @@ import im.ene.toro.ToroAdapter;
 public class VideoAdapter extends ToroAdapter<ToroAdapter.ViewHolder> {
     @Override
     public ToroAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_video_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_video_item, parent, false);
         return new VideoHolder(view);
     }
 
@@ -32,6 +32,6 @@ public class VideoAdapter extends ToroAdapter<ToroAdapter.ViewHolder> {
     @Nullable
     @Override
     protected Object getItem(int position) {
-        return  "asset:///video.mp4";
+        return "asset:///video.mp4";
     }
 }

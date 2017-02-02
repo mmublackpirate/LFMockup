@@ -95,7 +95,7 @@ public class CreateVideoActivity extends BaseActivity implements Runnable, FontP
             finish();
         });
         download.setOnClickListener(v -> {
-            startActivity(new Intent(CreateVideoActivity.this,HomeActivity.class));
+            startActivity(new Intent(CreateVideoActivity.this, HomeActivity.class));
             finish();
         });
         recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));

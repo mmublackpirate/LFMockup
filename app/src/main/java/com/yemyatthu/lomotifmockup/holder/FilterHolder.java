@@ -18,13 +18,14 @@ import butterknife.ButterKnife;
 public class FilterHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.title)
     TextView title;
+
     public FilterHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this,itemView);
+        ButterKnife.bind(this, itemView);
     }
 
-    public void bind(int position){
-        switch (position%4){
+    public void bind(int position) {
+        switch (position % 4) {
             case 0:
                 title.setText("Moon");
                 break;

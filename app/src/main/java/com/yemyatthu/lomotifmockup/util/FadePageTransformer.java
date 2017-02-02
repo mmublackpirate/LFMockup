@@ -9,6 +9,32 @@ import android.view.View;
  */
 public class FadePageTransformer implements ViewPager.PageTransformer {
 
+    /**
+     * Get the alpha value that should be applied to a position.
+     *
+     * @param position Position to find an alpha for.
+     * @return An alpha value.
+     */
+    private static final float getAlpha(final float position) {
+        return getSlowQuadraticAlpha(position);
+    }
+
+    private static final float getLinearAlpha(final float position) {
+        if (position <= 0) {
+            return 1 + position;
+        }
+        return 1 - position;
+    }
+
+    private static final float getFastQuadraticAlpha(final float position) {
+        final float linearAlpha = getLinearAlpha(position);
+        return linearAlpha * linearAlpha;
+    }
+
+    private static final float getSlowQuadraticAlpha(final float position) {
+        return 1 - position * position;
+    }
+
     @Override
     public final void transformPage(final View view, final float position) {
         final int pageWidth = view.getWidth();
@@ -43,31 +69,5 @@ public class FadePageTransformer implements ViewPager.PageTransformer {
             view.setVisibility(View.GONE);
             view.setTranslationX(-pageWidth);
         }
-    }
-
-    /**
-     * Get the alpha value that should be applied to a position.
-     *
-     * @param position Position to find an alpha for.
-     * @return An alpha value.
-     */
-    private static final float getAlpha(final float position) {
-        return getSlowQuadraticAlpha(position);
-    }
-
-    private static final float getLinearAlpha(final float position) {
-        if (position <= 0) {
-            return 1 + position;
-        }
-        return 1 - position;
-    }
-
-    private static final float getFastQuadraticAlpha(final float position) {
-        final float linearAlpha = getLinearAlpha(position);
-        return linearAlpha * linearAlpha;
-    }
-
-    private static final float getSlowQuadraticAlpha(final float position) {
-        return 1 - position * position;
     }
 }

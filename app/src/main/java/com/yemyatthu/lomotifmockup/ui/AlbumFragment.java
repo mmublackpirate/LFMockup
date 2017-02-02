@@ -39,12 +39,14 @@ public class AlbumFragment extends BaseFragment {
     private AlbumAdapter albumAdapter;
     private AlbumFragmentViewController albumFragmentViewController;
 
-    public static AlbumFragment newInstance(){
-        return new AlbumFragment();
-    }
-    public AlbumFragment(){
+    public AlbumFragment() {
 
     }
+
+    public static AlbumFragment newInstance() {
+        return new AlbumFragment();
+    }
+
     @Override
     public int getContentLayout() {
         return R.layout.fragment_album;
@@ -52,26 +54,26 @@ public class AlbumFragment extends BaseFragment {
 
     @Override
     public void initComponents() {
-        if(getActivity() instanceof HomeActivity){
+        if (getActivity() instanceof HomeActivity) {
             albumFragmentViewController = ((HomeActivity) getActivity()).albumFragmentViewController;
         }
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recycler.setLayoutManager(linearLayoutManager);
         albumAdapter = new AlbumAdapter();
         albumAdapter.setAlbumClickListener(() -> {
-            if(recycler.getVisibility()== View.VISIBLE)
+            if (recycler.getVisibility() == View.VISIBLE)
                 recycler.setVisibility(View.GONE);
-            if(albumFragmentViewController !=null){
+            if (albumFragmentViewController != null) {
                 albumFragmentViewController.setSecondView();
             }
             sideCont.setVisibility(View.VISIBLE);
             MediaFragment mediaFragment = MediaFragment.newInstance(false);
-            getChildFragmentManager().beginTransaction().replace(R.id.fragment_cont,mediaFragment).commit();
+            getChildFragmentManager().beginTransaction().replace(R.id.fragment_cont, mediaFragment).commit();
             title.setOnClickListener(v -> {
                 getChildFragmentManager().beginTransaction().remove(mediaFragment).commit();
                 sideCont.setVisibility(View.GONE);
                 recycler.setVisibility(View.VISIBLE);
-                if(albumFragmentViewController !=null){
+                if (albumFragmentViewController != null) {
                     albumFragmentViewController.setFirstView();
                 }
             });
@@ -82,22 +84,22 @@ public class AlbumFragment extends BaseFragment {
     @Override
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);
-        if(recycler==null){
+        if (recycler == null) {
             return;
         }
-        if(menuVisible){
-            if(recycler.getVisibility() == View.VISIBLE){
+        if (menuVisible) {
+            if (recycler.getVisibility() == View.VISIBLE) {
                 albumFragmentViewController.setFirstView();
-            }else{
+            } else {
                 albumFragmentViewController.setSecondView();
             }
-        }else{
+        } else {
             albumFragmentViewController.setFirstView();
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onAlbumEvent(AlbumEvent event){
+    public void onAlbumEvent(AlbumEvent event) {
         title.callOnClick();
     }
 
@@ -113,7 +115,7 @@ public class AlbumFragment extends BaseFragment {
         EventBus.getDefault().register(this);
     }
 
-    public void resetFragment(){
+    public void resetFragment() {
         title.callOnClick();
     }
 }

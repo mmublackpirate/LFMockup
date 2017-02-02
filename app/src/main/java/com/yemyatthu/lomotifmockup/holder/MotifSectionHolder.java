@@ -20,13 +20,14 @@ import butterknife.ButterKnife;
 public class MotifSectionHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.title)
     TextView motifTitle;
+
     public MotifSectionHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this,itemView);
+        ButterKnife.bind(this, itemView);
     }
 
-    public void bind(int position, SectionClickListener sectionClickListener){
-        switch (position%4){
+    public void bind(int position, SectionClickListener sectionClickListener) {
+        switch (position % 4) {
             case 0:
                 motifTitle.setText("tweak");
                 motifTitle.setTextColor(Color.BLUE);
@@ -45,8 +46,8 @@ public class MotifSectionHolder extends RecyclerView.ViewHolder {
                 break;
         }
         motifTitle.setOnClickListener(v -> {
-            if(sectionClickListener!=null)
-                sectionClickListener.onSectionClick(motifTitle.getText().toString(),motifTitle.getCurrentTextColor());
+            if (sectionClickListener != null)
+                sectionClickListener.onSectionClick(motifTitle.getText().toString(), motifTitle.getCurrentTextColor());
         });
     }
 }

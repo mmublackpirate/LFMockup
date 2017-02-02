@@ -20,24 +20,25 @@ import butterknife.BindView;
 
 
 public class MediaFragment extends BaseFragment {
-    public static String DISABLE_SELECTION = MediaFragment.class.getSimpleName()+"Disable_Selection";
+    public static String DISABLE_SELECTION = MediaFragment.class.getSimpleName() + "Disable_Selection";
     @BindView(R.id.recycler)
     RecyclerView recycler;
 
     private GridLayoutManager gridLayoutManager;
     private MediaAdapter mediaAdapter;
 
-    public static MediaFragment newInstance(boolean disableSelection){
+    public MediaFragment() {
+
+    }
+
+    public static MediaFragment newInstance(boolean disableSelection) {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(DISABLE_SELECTION,disableSelection);
+        bundle.putBoolean(DISABLE_SELECTION, disableSelection);
         MediaFragment mediaFragment = new MediaFragment();
         mediaFragment.setArguments(bundle);
         return mediaFragment;
     }
 
-    public MediaFragment(){
-
-    }
     @Override
     public int getContentLayout() {
         return R.layout.fragment_media;
@@ -45,8 +46,8 @@ public class MediaFragment extends BaseFragment {
 
     @Override
     public void initComponents() {
-        gridLayoutManager = new GridLayoutManager(getActivity(),3);
-        mediaAdapter = new MediaAdapter(getArguments().getBoolean(DISABLE_SELECTION,false));
+        gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+        mediaAdapter = new MediaAdapter(getArguments().getBoolean(DISABLE_SELECTION, false));
         recycler.setLayoutManager(gridLayoutManager);
         recycler.setAdapter(mediaAdapter);
     }
@@ -54,6 +55,6 @@ public class MediaFragment extends BaseFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        EventBus.getDefault().post(new MediaSelectEvent(false,mediaAdapter.getAmountToDelete()));
+        EventBus.getDefault().post(new MediaSelectEvent(false, mediaAdapter.getAmountToDelete()));
     }
 }

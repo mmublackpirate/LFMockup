@@ -61,11 +61,11 @@ public class TextChangeView extends LinearLayout {
         super.onFinishInflate();
     }
 
-    public void setOnFontPickListener(OnClickListener onFontPickListener){
+    public void setOnFontPickListener(OnClickListener onFontPickListener) {
         fontPick.setOnClickListener(onFontPickListener);
     }
 
-    public void setOnColorPickListener(OnClickListener onColorPickListener){
+    public void setOnColorPickListener(OnClickListener onColorPickListener) {
         colorPick.setOnClickListener(onColorPickListener);
     }
 }

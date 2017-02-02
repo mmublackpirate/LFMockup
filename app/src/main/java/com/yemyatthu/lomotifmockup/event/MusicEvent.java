@@ -10,7 +10,8 @@ import android.support.v4.app.Fragment;
 
 public class MusicEvent {
     public Fragment fragment;
-    public MusicEvent(Fragment fragment){
+
+    public MusicEvent(Fragment fragment) {
         this.fragment = fragment;
     }
 }

@@ -2,103 +2,116 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.yemyatthu.lomotifmockup.ui.CreateVideoActivity">
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:contentInsetLeft="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp"
-        app:layout_scrollFlags="scroll|snap">
-        <ImageView
-            android:id="@+id/close"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_close"
-            android:scaleType="centerInside"/>
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_gravity="center"
-            style="@style/CustomTitleText"
-            android:text="Create"/>
 
-        <ImageView
-            android:id="@+id/download"
-            android:layout_width="48dp"
-            android:padding="12dp"
-            android:layout_height="48dp"
-            android:layout_gravity="right|center_vertical"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_download"/>
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_scrollFlags="scroll|snap">
 
-    </android.support.v7.widget.Toolbar>
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_close" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/CustomTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Create" />
+
+            <ImageView
+                android:id="@+id/download"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="right|center_vertical"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_download" />
+
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@android:color/black"
-            android:layout_weight="1">
-        <SurfaceView
-            android:id="@+id/video"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-           />
+            android:layout_weight="1"
+            android:background="@android:color/black">
+
+            <SurfaceView
+                android:id="@+id/video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+
             <ImageView
+                android:id="@+id/play"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_play"
-                android:id="@+id/play"/>
+                android:src="@drawable/ic_play" />
 
         </FrameLayout>
+
         <me.zhanghai.android.materialprogressbar.MaterialProgressBar
             android:id="@+id/seek"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:mpb_progressStyle="horizontal"
             android:background="@android:color/black"
-            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding" />
+            app:mpb_progressStyle="horizontal" />
+
         <FrameLayout
             android:id="@+id/edit_cont"
             android:layout_width="match_parent"
             android:layout_height="160dp">
+
             <com.yemyatthu.lomotifmockup.view.AddPhotoVideoView
                 android:id="@+id/add_photo_music"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler"
-                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
             <com.yemyatthu.lomotifmockup.view.TextChangeView
                 android:id="@+id/text_change_view"
-                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
             <com.yemyatthu.lomotifmockup.view.AdjustView
                 android:id="@+id/adjust_view"
-                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-            </FrameLayout>
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+        </FrameLayout>
     </LinearLayout>
 
     <com.aurelhubert.ahbottomnavigation.AHBottomNavigation

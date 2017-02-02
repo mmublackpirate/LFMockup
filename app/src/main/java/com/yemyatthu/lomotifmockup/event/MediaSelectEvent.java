@@ -8,12 +8,14 @@ package com.yemyatthu.lomotifmockup.event;
 
 public class MediaSelectEvent {
     public boolean isSelected;
-    public int amountToDelete = 0 ;
-    public MediaSelectEvent(boolean isSelected,int amountToDelete){
+    public int amountToDelete = 0;
+
+    public MediaSelectEvent(boolean isSelected, int amountToDelete) {
         this.isSelected = isSelected;
         this.amountToDelete = amountToDelete;
     }
-    public MediaSelectEvent(boolean isSelected){
+
+    public MediaSelectEvent(boolean isSelected) {
         this.isSelected = isSelected;
     }
 }

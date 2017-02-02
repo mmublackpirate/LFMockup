@@ -17,13 +17,13 @@ import com.yemyatthu.lomotifmockup.holder.NotificationHolder;
 public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_noti_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_noti_item, parent, false);
         return new NotificationHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof NotificationHolder)
+        if (holder instanceof NotificationHolder)
             ((NotificationHolder) holder).bind(position);
     }
 

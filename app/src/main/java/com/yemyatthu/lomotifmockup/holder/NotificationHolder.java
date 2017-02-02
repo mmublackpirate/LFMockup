@@ -14,7 +14,7 @@ public class NotificationHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    public void bind(int position){
+    public void bind(int position) {
 
     }
 }

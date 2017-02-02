@@ -46,12 +46,15 @@ public class MotifFragment extends BaseFragment {
     private GridLayoutManager gridLayoutManager;
     private MotifAdapter motifAdapter;
     private MotifFragmentViewController motifFragmentViewController;
-    public static MotifFragment newInstance(){
-        return new MotifFragment();
-    }
-    public MotifFragment(){
+
+    public MotifFragment() {
 
     }
+
+    public static MotifFragment newInstance() {
+        return new MotifFragment();
+    }
+
     @Override
     public int getContentLayout() {
         return R.layout.fragment_motif;
@@ -59,7 +62,7 @@ public class MotifFragment extends BaseFragment {
 
     @Override
     public void initComponents() {
-        if(getActivity() instanceof HomeActivity){
+        if (getActivity() instanceof HomeActivity) {
             motifFragmentViewController = ((HomeActivity) getActivity()).motifFragmentViewController;
         }
         gridLayoutManager = new GridLayoutManager(getActivity(), 3);
@@ -75,7 +78,7 @@ public class MotifFragment extends BaseFragment {
         });
         motifAdapter = new MotifAdapter();
         motifAdapter.setSectionClickListener((sectionTitle, color) -> {
-            if(mainCont.getVisibility()==View.VISIBLE)
+            if (mainCont.getVisibility() == View.VISIBLE)
                 mainCont.setVisibility(View.GONE);
             motifFragmentViewController.setSecondView();
             sideCont.setVisibility(View.VISIBLE);
@@ -88,30 +91,31 @@ public class MotifFragment extends BaseFragment {
                 mainCont.setVisibility(View.VISIBLE);
                 motifFragmentViewController.setFirstView();
             });
-            getChildFragmentManager().beginTransaction().replace(R.id.fragment_cont,mediaFragment).commit();
+            getChildFragmentManager().beginTransaction().replace(R.id.fragment_cont, mediaFragment).commit();
         });
         recycler.setLayoutManager(gridLayoutManager);
         recycler.setAdapter(motifAdapter);
     }
+
     @Override
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);
-        if(mainCont==null){
+        if (mainCont == null) {
             return;
         }
-        if(menuVisible){
-            if(mainCont.getVisibility() == View.VISIBLE){
+        if (menuVisible) {
+            if (mainCont.getVisibility() == View.VISIBLE) {
                 motifFragmentViewController.setFirstView();
-            }else{
+            } else {
                 motifFragmentViewController.setSecondView();
             }
-        }else{
+        } else {
             motifFragmentViewController.setFirstView();
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMotifEvent(MotifEvent event){
+    public void onMotifEvent(MotifEvent event) {
         title.callOnClick();
     }
 
@@ -127,7 +131,7 @@ public class MotifFragment extends BaseFragment {
         EventBus.getDefault().register(this);
     }
 
-    public void resetFragment(){
+    public void resetFragment() {
         title.callOnClick();
         motifAdapter.selectedPosition.clear();
         motifAdapter.notifyDataSetChanged();

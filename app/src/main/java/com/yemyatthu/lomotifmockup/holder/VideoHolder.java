@@ -22,18 +22,19 @@ import im.ene.toro.exoplayer2.ExoVideoViewHolder;
  */
 
 
-public class VideoHolder extends ExoVideoViewHolder{
+public class VideoHolder extends ExoVideoViewHolder {
     @BindView(R.id.thumbnail)
     ImageView thumbnail;
     private String mediaUri;
+
     public VideoHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this,itemView);
+        ButterKnife.bind(this, itemView);
     }
 
     @Override
     public void bind(RecyclerView.Adapter adapter, @Nullable Object object) {
-        if(object instanceof String) {
+        if (object instanceof String) {
             mediaUri = (String) object;
             videoView.setMedia(Uri.parse(mediaUri));
         }
@@ -44,17 +45,18 @@ public class VideoHolder extends ExoVideoViewHolder{
     @Override
     protected ExoVideoView findVideoView(View itemView) {
 
-        return (ExoVideoView)itemView.findViewById(R.id.video);
+        return (ExoVideoView) itemView.findViewById(R.id.video);
     }
 
 
     @Nullable
     @Override
     public String getMediaId() {
-        return mediaUri+"@"+getAdapterPosition();
+        return mediaUri + "@" + getAdapterPosition();
     }
 
-    @Override public void onViewHolderBound() {
+    @Override
+    public void onViewHolderBound() {
         super.onViewHolderBound();
         Picasso.with(itemView.getContext())
                 .load(R.drawable.safesound)
@@ -62,30 +64,37 @@ public class VideoHolder extends ExoVideoViewHolder{
                 .centerInside()
                 .into(thumbnail);
     }
-    @Override public void onPlaybackStarted() {
+
+    @Override
+    public void onPlaybackStarted() {
         // Use animation to have a fancy UI
         thumbnail.animate().alpha(0.f).setDuration(250).setListener(new AnimatorListenerAdapter() {
-            @Override public void onAnimationEnd(Animator animation) {
+            @Override
+            public void onAnimationEnd(Animator animation) {
                 // Call from here, not outside
                 VideoHolder.super.onPlaybackStarted();
             }
         }).start();
     }
 
-    @Override public void onPlaybackPaused() {
+    @Override
+    public void onPlaybackPaused() {
         // Use animation to have a fancy UI
         thumbnail.animate().alpha(1.f).setDuration(250).setListener(new AnimatorListenerAdapter() {
-            @Override public void onAnimationEnd(Animator animation) {
+            @Override
+            public void onAnimationEnd(Animator animation) {
                 // Call from here, not outside
                 VideoHolder.super.onPlaybackPaused();
             }
         }).start();
     }
 
-    @Override public void onPlaybackCompleted() {
+    @Override
+    public void onPlaybackCompleted() {
         // Use animation to have a fancy UI
         thumbnail.animate().alpha(1.f).setDuration(250).setListener(new AnimatorListenerAdapter() {
-            @Override public void onAnimationEnd(Animator animation) {
+            @Override
+            public void onAnimationEnd(Animator animation) {
                 // Call from here, not outside
                 VideoHolder.super.onPlaybackCompleted();
             }
@@ -93,10 +102,12 @@ public class VideoHolder extends ExoVideoViewHolder{
 
     }
 
-    @Override public boolean onPlaybackError(Exception error) {
+    @Override
+    public boolean onPlaybackError(Exception error) {
         // Use animation to have a fancy UI
         thumbnail.animate().alpha(1.f).setDuration(0).setListener(new AnimatorListenerAdapter() {
-            @Override public void onAnimationEnd(Animator animation) {
+            @Override
+            public void onAnimationEnd(Animator animation) {
                 // Finish immediately, nothing to do.
             }
         }).start();

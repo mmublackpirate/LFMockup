@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="280dp"
-    android:background="@android:color/black"
-    >
+    android:background="@android:color/black">
 
     <!--
     Generally VideoView is not visible if its height is set to wrap_content, so consider to give it a
@@ -15,27 +14,29 @@
     <im.ene.toro.exoplayer2.ExoVideoView
         android:id="@+id/video"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        />
+        android:layout_height="280dp" />
+
     <ImageView
         android:id="@+id/thumbnail"
-        android:src="@drawable/default_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_image" />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:src="@drawable/potrait"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:src="@drawable/potrait" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/profile"
-        android:layout_alignTop="@id/profile"
         android:layout_alignBottom="@id/profile"
-        android:textColor="@android:color/white"
+        android:layout_alignTop="@id/profile"
+        android:layout_toRightOf="@id/profile"
         android:gravity="center_vertical"
-        android:text="yemyatthu"/>
+        android:text="yemyatthu"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

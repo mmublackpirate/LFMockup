@@ -19,6 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initComponents();
     }
+
     public abstract int getContentLayout();
 
     public abstract void initComponents();

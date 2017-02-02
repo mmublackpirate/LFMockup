@@ -17,13 +17,13 @@ import com.yemyatthu.lomotifmockup.holder.FilterHolder;
 public class FilterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_filter_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_filter_item, parent, false);
         return new FilterHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof FilterHolder)
+        if (holder instanceof FilterHolder)
             ((FilterHolder) holder).bind(position);
     }
 

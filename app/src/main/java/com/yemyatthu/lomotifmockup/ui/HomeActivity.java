@@ -28,13 +28,14 @@ import butterknife.BindView;
 
 public class HomeActivity extends BaseActivity {
 
+    public AlbumFragmentViewController albumFragmentViewController;
+    public MotifFragmentViewController motifFragmentViewController;
     @BindView(R.id.pager)
     ViewPager pager;
     @BindView(R.id.content_home)
     RelativeLayout contentHome;
     @BindView(R.id.bottom_navigation)
     AHBottomNavigation bottomNavigation;
-
     @BindColor(R.color.colorPrimary)
     int colorPrimary;
     @BindColor(R.color.colorPrimaryDark)
@@ -45,9 +46,8 @@ public class HomeActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private List<Fragment> fragments;
     private AddFragment addFragment;
-    public AlbumFragmentViewController albumFragmentViewController;
-    public MotifFragmentViewController motifFragmentViewController;
     private int lastCurrentItem = 0;
+
     @Override
     public int getContentLayout() {
         return R.layout.activity_home;
@@ -69,7 +69,7 @@ public class HomeActivity extends BaseActivity {
         fragments.add(NotificationsFragment.newInstance());
 
 
-        tabPagerAdapter = new TabPagerAdapter(fragmentManager, fragments,null);
+        tabPagerAdapter = new TabPagerAdapter(fragmentManager, fragments, null);
         pager.setAdapter(tabPagerAdapter);
         pager.setPageTransformer(false, new FadePageTransformer());
         pager.setOffscreenPageLimit(3);
@@ -77,7 +77,7 @@ public class HomeActivity extends BaseActivity {
         AHBottomNavigationItem item1 = new AHBottomNavigationItem("Feed", R.drawable.ic_feed);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem("Add", R.drawable.ic_add);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem("Profile", R.drawable.ic_profile);
-        AHBottomNavigationItem notiItem = new AHBottomNavigationItem("Notifications",R.drawable.ic_noti);
+        AHBottomNavigationItem notiItem = new AHBottomNavigationItem("Notifications", R.drawable.ic_noti);
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
@@ -91,7 +91,7 @@ public class HomeActivity extends BaseActivity {
         AHNotification ahNotification = new AHNotification.Builder()
                 .setText("4")
                 .setBackgroundColor(Color.RED).build();
-        bottomNavigation.setNotification(ahNotification,3);
+        bottomNavigation.setNotification(ahNotification, 3);
         bottomNavigation.setOnTabSelectedListener((position, wasSelected) -> {
             if (wasSelected)
                 return false;

@@ -24,7 +24,7 @@ import butterknife.BindView;
  */
 
 
-public class AddMusicFragment extends BaseFragment{
+public class AddMusicFragment extends BaseFragment {
     @BindView(R.id.tab)
     TabLayout tab;
     @BindView(R.id.pager)
@@ -36,13 +36,14 @@ public class AddMusicFragment extends BaseFragment{
     private FindMusicFragment findMusicFragment;
     private MyMusicFragment myMusicFragment;
 
-    public static AddMusicFragment newInstance(){
+    public AddMusicFragment() {
+
+    }
+
+    public static AddMusicFragment newInstance() {
         return new AddMusicFragment();
     }
 
-    public AddMusicFragment(){
-
-    }
     @Override
     public int getContentLayout() {
         return R.layout.fragment_add_music;
@@ -58,7 +59,7 @@ public class AddMusicFragment extends BaseFragment{
         titles = new ArrayList<>();
         titles.add("Find Music");
         titles.add("My Music");
-        tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(),fragments,titles);
+        tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(), fragments, titles);
         pager.setAdapter(tabPagerAdapter);
         tab.setupWithViewPager(pager);
     }
@@ -66,29 +67,30 @@ public class AddMusicFragment extends BaseFragment{
     @Override
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);
-        if(findMusicFragment==null || myMusicFragment == null){
+        if (findMusicFragment == null || myMusicFragment == null) {
             return;
         }
         findMusicFragment.setMenuVisibility(menuVisible);
         myMusicFragment.setMenuVisibility(menuVisible);
     }
 
-    public void resetAllFragments(){
+    public void resetAllFragments() {
         findMusicFragment.resetFragment();
         myMusicFragment.resetFragment();
-        if(pager.getCurrentItem()>0){
+        if (pager.getCurrentItem() > 0) {
             pager.setCurrentItem(0);
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMusicEvent(MusicEvent event) {
-        if(event.fragment instanceof MyMusicFragment){
+        if (event.fragment instanceof MyMusicFragment) {
             findMusicFragment.resetFragment();
-        }else if(event.fragment instanceof FindMusicFragment){
+        } else if (event.fragment instanceof FindMusicFragment) {
             myMusicFragment.resetFragment();
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();

@@ -34,14 +34,15 @@ public class MediaHolder extends RecyclerView.ViewHolder {
     @BindDrawable(R.drawable.background_media_selected)
     Drawable mediaSelected;
     private boolean disableSelection = false;
-    public MediaHolder(View itemView,boolean disableSelection) {
+
+    public MediaHolder(View itemView, boolean disableSelection) {
         super(itemView);
-        ButterKnife.bind(this,itemView);
+        ButterKnife.bind(this, itemView);
         this.disableSelection = disableSelection;
     }
 
-    public void bind(int position,List<Integer> selectedPosition){
-        if(!disableSelection) {
+    public void bind(int position, List<Integer> selectedPosition) {
+        if (!disableSelection) {
             if (selectedPosition.contains(position)) {
                 ViewCompat.setElevation(mediaCont, Utils.convertDpToPixel(8, mediaCont.getContext()));
                 mediaCont.setForeground(mediaSelected);

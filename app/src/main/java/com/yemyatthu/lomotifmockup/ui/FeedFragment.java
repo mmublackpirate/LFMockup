@@ -30,13 +30,14 @@ public class FeedFragment extends BaseFragment {
     private VideoFragment secondVideoFragment;
     private VideoFragment firstVideoFragment;
 
-    public static FeedFragment newInstance(){
+    public FeedFragment() {
+
+    }
+
+    public static FeedFragment newInstance() {
         return new FeedFragment();
     }
 
-    public FeedFragment(){
-
-    }
     @Override
     public int getContentLayout() {
         return R.layout.fragment_feed;
@@ -52,7 +53,7 @@ public class FeedFragment extends BaseFragment {
         List<String> titles = new ArrayList<>();
         titles.add("Featured");
         titles.add("Followings");
-        tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(),fragments,titles);
+        tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(), fragments, titles);
         pager.setAdapter(tabPagerAdapter);
         tab.setupWithViewPager(pager);
     }
@@ -60,7 +61,7 @@ public class FeedFragment extends BaseFragment {
     @Override
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);
-        if(firstVideoFragment!=null && secondVideoFragment!=null) {
+        if (firstVideoFragment != null && secondVideoFragment != null) {
             firstVideoFragment.setMenuVisibility(menuVisible);
             secondVideoFragment.setMenuVisibility(menuVisible);
         }

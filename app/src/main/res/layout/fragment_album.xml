@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"
-        android:padding="4dp"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <LinearLayout
-        android:id="@+id/side_cont"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:clipToPadding="false"
+        android:padding="4dp" />
+
+    <LinearLayout
+        android:id="@+id/side_cont"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
         <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Documents"
-            android:gravity="center"
-            android:padding="8dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
             android:background="@color/colorAccent"
             android:drawableRight="@drawable/ic_close"
-            android:id="@+id/title"/>
-    <FrameLayout
-        android:id="@+id/fragment_cont"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Documents"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:id="@+id/fragment_cont"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 </FrameLayout>

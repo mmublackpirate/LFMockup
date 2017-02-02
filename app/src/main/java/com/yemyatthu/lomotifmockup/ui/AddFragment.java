@@ -63,7 +63,7 @@ public class AddFragment extends BaseFragment {
         fragments.add(addPhotoVideosFragment);
         fragments.add(addMusicFragment);
         close.setOnClickListener(v -> {
-            if(pager.getCurrentItem()==0) {
+            if (pager.getCurrentItem() == 0) {
                 if (selectedAmount > 0) {
                     selectedAmount = 0;
                     next.setEnabled(false);
@@ -74,25 +74,25 @@ public class AddFragment extends BaseFragment {
                 if (onDismissListener != null) {
                     onDismissListener.onDismiss();
                 }
-            }else{
-                pager.setCurrentItem(pager.getCurrentItem()-1);
-                if(pager.getCurrentItem()==0){
+            } else {
+                pager.setCurrentItem(pager.getCurrentItem() - 1);
+                if (pager.getCurrentItem() == 0) {
                     close.setImageResource(R.drawable.ic_close);
-                    title.setText(selectedAmount==0?"Add Photos and Videos":selectedAmount+" Selected ");
+                    title.setText(selectedAmount == 0 ? "Add Photos and Videos" : selectedAmount + " Selected ");
                 }
             }
         });
         next.setOnClickListener(v -> {
-            if(pager.getCurrentItem()==0){
+            if (pager.getCurrentItem() == 0) {
                 close.setImageResource(R.drawable.ic_back);
             }
-            if(pager.getChildCount()-1>pager.getCurrentItem()){
-                pager.setCurrentItem(pager.getCurrentItem()+1);
-                if(pager.getCurrentItem()==1){
+            if (pager.getChildCount() - 1 > pager.getCurrentItem()) {
+                pager.setCurrentItem(pager.getCurrentItem() + 1);
+                if (pager.getCurrentItem() == 1) {
                     title.setText("Find Music");
                 }
-            }else{
-                startActivity(new Intent(getActivity(),CreateVideoActivity.class));
+            } else {
+                startActivity(new Intent(getActivity(), CreateVideoActivity.class));
             }
         });
         tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(), fragments, null);
@@ -101,10 +101,6 @@ public class AddFragment extends BaseFragment {
 
     public void setOnDismissListener(OnDismissListener onDismissListener) {
         this.onDismissListener = onDismissListener;
-    }
-
-    public interface OnDismissListener {
-        void onDismiss();
     }
 
     @Override
@@ -117,19 +113,18 @@ public class AddFragment extends BaseFragment {
         addMusicFragment.setMenuVisibility(menuVisible);
     }
 
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMediaSelectEvent(MediaSelectEvent event) {
-        if(event.amountToDelete>0){
-            if(selectedAmount>event.amountToDelete) {
+        if (event.amountToDelete > 0) {
+            if (selectedAmount > event.amountToDelete) {
                 selectedAmount = selectedAmount - event.amountToDelete;
-            }else{
-                selectedAmount =0;
+            } else {
+                selectedAmount = 0;
             }
             if (selectedAmount == 0) {
                 next.setEnabled(false);
                 title.setText("Add Photos and Vidoes");
-            }else{
+            } else {
                 title.setText(String.format("%d Selected ", selectedAmount));
             }
             return;
@@ -141,12 +136,12 @@ public class AddFragment extends BaseFragment {
             }
             title.setText(String.format("%d Selected ", selectedAmount));
         } else {
-            if(selectedAmount>0)
+            if (selectedAmount > 0)
                 selectedAmount--;
             if (selectedAmount == 0) {
                 next.setEnabled(false);
                 title.setText("Add Photos and Vidoes");
-            }else{
+            } else {
                 title.setText(String.format("%d Selected ", selectedAmount));
             }
         }
@@ -162,5 +157,9 @@ public class AddFragment extends BaseFragment {
     public void onPause() {
         super.onPause();
         EventBus.getDefault().unregister(this);
+    }
+
+    public interface OnDismissListener {
+        void onDismiss();
     }
 }

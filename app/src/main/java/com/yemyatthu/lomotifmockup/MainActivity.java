@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,13 +27,13 @@ public class MainActivity extends BaseActivity {
     View lomotifCont;
 
 
-    private void animateFromTopToBottom(View view){
+    private void animateFromTopToBottom(View view) {
         view.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
             Rect myViewRect = new Rect();
             view.getGlobalVisibleRect(myViewRect);
             float y = myViewRect.top;
-            view.animate().translationY(-(y+Utils.convertDpToPixel(400,this)))
-                    .setDuration(100)
+            view.animate().translationY(-(y + Utils.convertDpToPixel(2000, this)))
+                    .setDuration(200)
                     .setListener(new Animator.AnimatorListener() {
                         @Override
                         public void onAnimationStart(Animator animation) {
@@ -41,10 +42,10 @@ public class MainActivity extends BaseActivity {
 
                         @Override
                         public void onAnimationEnd(Animator animation) {
-//                            new Handler().postDelayed(() -> view.animate().translationY(0)
-//                                    .setDuration(3000)
-//                                    .setInterpolator(new BounceInterpolator())
-//                                    .start(),1000);
+                            view.animate().translationY(0)
+                                    .setDuration(3000)
+                                    .setInterpolator(new BounceInterpolator())
+                                    .start();
 
                         }
 
@@ -63,12 +64,12 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void animateFromRightToLeft(View view){
+    private void animateFromRightToLeft(View view) {
         view.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
             Rect myViewRect = new Rect();
             view.getGlobalVisibleRect(myViewRect);
             float x = myViewRect.right;
-            view.animate().translationX(x+ Utils.convertDpToPixel(200,this))
+            view.animate().translationX(x + Utils.convertDpToPixel(200, this))
                     .setDuration(100)
                     .setListener(new Animator.AnimatorListener() {
                         @Override
@@ -80,7 +81,7 @@ public class MainActivity extends BaseActivity {
                         public void onAnimationEnd(Animator animation) {
                             new Handler().postDelayed(() -> view.animate().translationX(0)
                                     .setDuration(1500)
-                                    .start(),4000);
+                                    .start(), 4000);
                         }
 
                         @Override
@@ -105,11 +106,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initComponents() {
-        new Handler().postDelayed(() -> mainCont.setVisibility(View.VISIBLE),100);
+        new Handler().postDelayed(() -> mainCont.setVisibility(View.VISIBLE), 100);
         animateFromTopToBottom(lomotifCont);
         animateFromRightToLeft(startBtn);
         startBtn.setOnClickListener(v -> {
-            startActivity(new Intent(this,HomeActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
             finish();
         });
     }

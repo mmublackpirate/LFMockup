@@ -33,9 +33,9 @@
             android:name=".ui.CreateVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_create_video"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
 
-            </activity>
+        </activity>
     </application>
 
 </manifest>

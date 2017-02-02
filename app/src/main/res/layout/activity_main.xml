@@ -1,48 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_cont"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/main_cont"
-    android:gravity="center"
-    android:visibility="gone"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="false"
-    android:background="@color/colorPrimary">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone">
+
     <LinearLayout
         android:id="@+id/lomoti_cont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
-    <ImageView
-        android:id="@+id/lomotif_icon"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:src="@drawable/ic_motif_discovery_default"
-        android:tint="@android:color/white"/>
-    <TextView
-        android:id="@+id/lomotif_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lomotif"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="casual"
-        android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/lomotif_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_motif_discovery_default"
+            android:tint="@android:color/white" />
+
+        <TextView
+            android:id="@+id/lomotif_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Lomotif"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
     </LinearLayout>
+
     <com.yemyatthu.lomotifmockup.view.CircleGuideView
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="100dp" />
+
     <TextView
         android:id="@+id/start_btn"
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:text="Start"
-        android:textSize="18sp"
-        android:gravity="center"
         android:layout_marginTop="56dp"
-        android:textColor="@android:color/white"
+        android:background="@drawable/background_rounded_accent"
         android:foreground="?attr/selectableItemBackground"
-        android:background="@drawable/background_rounded_accent"/>
+        android:gravity="center"
+        android:text="Start"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 </LinearLayout>

@@ -22,37 +22,38 @@ import java.util.List;
 public class MotifAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int SECTION_HEADER = 100;
     public static final int DEFAULT = 101;
-    private SectionClickListener sectionClickListener;
     public List<Integer> selectedPosition = new ArrayList<>();
+    private SectionClickListener sectionClickListener;
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(viewType==SECTION_HEADER){
+        if (viewType == SECTION_HEADER) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.layout_motif_section_item,parent,false);
+                    .inflate(R.layout.layout_motif_section_item, parent, false);
             return new MotifSectionHolder(view);
-        }else if(viewType == DEFAULT) {
+        } else if (viewType == DEFAULT) {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.layout_media_item, parent, false);
-            return new MediaHolder(view,false);
+            return new MediaHolder(view, false);
         }
         return null;
     }
 
     @Override
     public int getItemViewType(int position) {
-        if(position%4==0){
+        if (position % 4 == 0) {
             return SECTION_HEADER;
-        }else{
+        } else {
             return DEFAULT;
         }
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof MediaHolder)
-            ((MediaHolder) holder).bind(position,selectedPosition);
-        else if(holder instanceof MotifSectionHolder) {
-            ((MotifSectionHolder) holder).bind(position/4,sectionClickListener);
+        if (holder instanceof MediaHolder)
+            ((MediaHolder) holder).bind(position, selectedPosition);
+        else if (holder instanceof MotifSectionHolder) {
+            ((MotifSectionHolder) holder).bind(position / 4, sectionClickListener);
         }
     }
 
@@ -61,7 +62,7 @@ public class MotifAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return 20;
     }
 
-    public void setSectionClickListener(SectionClickListener sectionClickListener){
+    public void setSectionClickListener(SectionClickListener sectionClickListener) {
         this.sectionClickListener = sectionClickListener;
     }
 }

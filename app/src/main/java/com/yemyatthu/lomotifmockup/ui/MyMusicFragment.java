@@ -20,11 +20,12 @@ public class MyMusicFragment extends BaseFragment {
     RecyclerView recycler;
     private MusicAdapter myMusicAdapter;
 
-    public static MyMusicFragment newInstance(){
-        return new MyMusicFragment();
+    public MyMusicFragment() {
     }
 
-    public MyMusicFragment(){}
+    public static MyMusicFragment newInstance() {
+        return new MyMusicFragment();
+    }
 
     @Override
     public int getContentLayout() {
@@ -33,18 +34,18 @@ public class MyMusicFragment extends BaseFragment {
 
     @Override
     public void initComponents() {
-        myMusicAdapter = new MusicAdapter(getActivity(),this);
+        myMusicAdapter = new MusicAdapter(getActivity(), this);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycler.setAdapter(myMusicAdapter);
     }
 
-    public void resetFragment(){
-        if(myMusicAdapter.selectedPosition != -1){
+    public void resetFragment() {
+        if (myMusicAdapter.selectedPosition != -1) {
             int tempPosition = myMusicAdapter.selectedPosition;
             myMusicAdapter.selectedPosition = -1;
             myMusicAdapter.notifyItemChanged(tempPosition);
         }
-        if(myMusicAdapter.mediaPlayer!=null && myMusicAdapter.mediaPlayer.isPlaying()) {
+        if (myMusicAdapter.mediaPlayer != null && myMusicAdapter.mediaPlayer.isPlaying()) {
             myMusicAdapter.mediaPlayer.stop();
         }
     }
@@ -52,7 +53,7 @@ public class MyMusicFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-        if(myMusicAdapter.mediaPlayer!=null && myMusicAdapter.mediaPlayer.isPlaying()) {
+        if (myMusicAdapter.mediaPlayer != null && myMusicAdapter.mediaPlayer.isPlaying()) {
             myMusicAdapter.mediaPlayer.stop();
         }
 

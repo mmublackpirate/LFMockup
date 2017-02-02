@@ -21,21 +21,23 @@ public class MusicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public int selectedPosition = -1;
     public MediaPlayer mediaPlayer;
     private Fragment fragment;
-    public MusicAdapter(Context context, Fragment fragment){
-        mediaPlayer = MediaPlayer.create(context,R.raw.music);
+
+    public MusicAdapter(Context context, Fragment fragment) {
+        mediaPlayer = MediaPlayer.create(context, R.raw.music);
         this.fragment = fragment;
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.layout_music_item,parent,false);
+                .inflate(R.layout.layout_music_item, parent, false);
         return new MusicHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof MusicHolder)
-            ((MusicHolder) holder).bind(position,this,fragment);
+        if (holder instanceof MusicHolder)
+            ((MusicHolder) holder).bind(position, this, fragment);
     }
 
     @Override
@@ -46,7 +48,7 @@ public class MusicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
-        if(mediaPlayer!=null){
+        if (mediaPlayer != null) {
             mediaPlayer.stop();
         }
     }

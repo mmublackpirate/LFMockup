@@ -23,14 +23,14 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_album_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_album_item, parent, false);
         return new AlbumHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof AlbumHolder)
-            ((AlbumHolder) holder).bind(position,albumCLickListener);
+        if (holder instanceof AlbumHolder)
+            ((AlbumHolder) holder).bind(position, albumCLickListener);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return 15;
     }
 
-    public void setAlbumClickListener(AlbumClickListener albumClickListener){
+    public void setAlbumClickListener(AlbumClickListener albumClickListener) {
         this.albumCLickListener = albumClickListener;
     }
 }

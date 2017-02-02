@@ -12,19 +12,21 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.yemyatthu.lomotifmockup.ui.FriendsActivity"
     tools:showIn="@layout/activity_friends">
+
     <TextView
         android:id="@+id/placeholder_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter username to find friends"
-        android:textColor="@color/darkGrey"
+        android:layout_centerInParent="true"
         android:gravity="center"
-        android:layout_centerInParent="true" />
+        android:text="Enter username to find friends"
+        android:textColor="@color/darkGrey" />
+
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_above="@id/placeholder_text"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_find_user_placeholder"
-        android:layout_centerHorizontal="true"/>
+        android:src="@drawable/ic_find_user_placeholder" />
 </RelativeLayout>

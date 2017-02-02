@@ -1,87 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/main_cont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/background_rounded_white"
-                android:orientation="horizontal">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="8dp">
+
                 <ImageView
                     android:id="@+id/search"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:clickable="true"
-                    android:tint="@color/darkGrey"
-                    android:src="@drawable/ic_search" />
+                    android:src="@drawable/ic_search"
+                    android:tint="@color/darkGrey" />
+
                 <EditText
                     android:id="@+id/edit_text_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:hint="New! Find Motifs better with search."
-                    android:paddingLeft="12dp"
-                    android:paddingRight="8dp"
-                    android:textSize="14sp"
                     android:lines="1"
                     android:maxLines="1"
-                    android:ellipsize="end"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/darkGrey" />
+                    android:paddingLeft="12dp"
+                    android:paddingRight="8dp"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </FrameLayout>
 
         <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:padding="4dp"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="4dp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/side_cont"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
+
         <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Tweak"
-            android:gravity="center"
-            android:padding="8dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
             android:background="@color/colorPrimary"
             android:drawableRight="@drawable/ic_close"
-            android:id="@+id/title"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Tweak" />
+
         <FrameLayout
             android:id="@+id/fragment_cont"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </FrameLayout>

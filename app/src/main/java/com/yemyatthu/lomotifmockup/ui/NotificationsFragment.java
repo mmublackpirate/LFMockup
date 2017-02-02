@@ -24,12 +24,13 @@ public class NotificationsFragment extends BaseFragment {
 
     private LinearLayoutManager linearLayoutManager;
     private NotificationAdapter notificationAdapter;
-    public static NotificationsFragment newInstance(){
-        return new NotificationsFragment();
+
+    public NotificationsFragment() {
+
     }
 
-    public NotificationsFragment(){
-
+    public static NotificationsFragment newInstance() {
+        return new NotificationsFragment();
     }
 
     @Override

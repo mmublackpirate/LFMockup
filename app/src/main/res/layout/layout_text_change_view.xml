@@ -32,64 +32,75 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:paddingBottom="16dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:gravity="center_horizontal"
         android:paddingTop="16dp">
+
         <LinearLayout
             android:id="@+id/font_pick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
+
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:tint="@color/darkGrey"
-                android:src="@drawable/ic_font"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Roboto" />
+                android:src="@drawable/ic_font"
+                android:tint="@color/darkGrey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Roboto" />
         </LinearLayout>
+
         <android.support.v4.widget.Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
         <ImageView
             android:id="@+id/color_pick"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:tint="@color/darkGrey"
-            android:src="@drawable/ic_picker"/>
+            android:src="@drawable/ic_picker"
+            android:tint="@color/darkGrey" />
+
         <android.support.v4.widget.Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:tint="@color/darkGrey"
-            android:src="@drawable/ic_left"/>
+            android:src="@drawable/ic_left"
+            android:tint="@color/darkGrey" />
+
         <android.support.v4.widget.Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.3"/>
+            android:layout_weight="0.3" />
+
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:tint="@color/darkGrey"
-            android:src="@drawable/ic_justify"/>
+            android:src="@drawable/ic_justify"
+            android:tint="@color/darkGrey" />
+
         <android.support.v4.widget.Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.3"/>
+            android:layout_weight="0.3" />
+
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:tint="@color/darkGrey"
-            android:src="@drawable/ic_right"/>
+            android:src="@drawable/ic_right"
+            android:tint="@color/darkGrey" />
     </LinearLayout>
 </merge>

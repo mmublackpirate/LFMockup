@@ -17,45 +17,48 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:titleTextAppearance="@style/CustomTitleText"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextAppearance="@style/CustomTitleText" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/background_rounded_white"
-            android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp">
+
             <ImageView
                 android:id="@+id/iv_bottom_search"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:clickable="true"
-                android:tint="@color/darkGrey"
-                android:src="@drawable/ic_search" />
+                android:src="@drawable/ic_search"
+                android:tint="@color/darkGrey" />
+
             <EditText
                 android:id="@+id/edit_text_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="Find by username"
-                android:textColorHint="@color/pale"
-                android:paddingLeft="12dp"
-                android:paddingRight="8dp"
-                android:textSize="14sp"
                 android:lines="1"
                 android:maxLines="1"
-                android:ellipsize="end"
-                android:background="@android:color/transparent"
-                android:textColor="@color/darkGrey" />
+                android:paddingLeft="12dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/darkGrey"
+                android:textColorHint="@color/pale"
+                android:textSize="14sp" />
 
         </LinearLayout>
     </android.support.design.widget.AppBarLayout>

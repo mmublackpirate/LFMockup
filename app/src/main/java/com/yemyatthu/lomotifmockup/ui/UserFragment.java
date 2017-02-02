@@ -38,13 +38,15 @@ public class UserFragment extends BaseFragment {
     ImageView follow;
 
     private TabPagerAdapter tabPagerAdapter;
-    public static UserFragment newInstance(){
+
+    public UserFragment() {
+
+    }
+
+    public static UserFragment newInstance() {
         return new UserFragment();
     }
 
-    public UserFragment(){
-
-    }
     @Override
     public int getContentLayout() {
         return R.layout.fragment_user;
@@ -62,8 +64,8 @@ public class UserFragment extends BaseFragment {
         pager.setAdapter(tabPagerAdapter);
         tab.setupWithViewPager(pager);
         setting.setOnClickListener(v -> {
-            startActivity(new Intent(getActivity(),SettingsActivity.class));
+            startActivity(new Intent(getActivity(), SettingsActivity.class));
         });
-        follow.setOnClickListener(v -> startActivity(new Intent(getActivity(),FriendsActivity.class)));
+        follow.setOnClickListener(v -> startActivity(new Intent(getActivity(), FriendsActivity.class)));
     }
 }

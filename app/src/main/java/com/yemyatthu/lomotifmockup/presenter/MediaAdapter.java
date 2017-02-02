@@ -21,18 +21,20 @@ public class MediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private boolean disableSelection = false;
     private List<Integer> selectedPosition = new ArrayList<>();
 
-    public MediaAdapter(){
+    public MediaAdapter() {
 
     }
-    public MediaAdapter(boolean disableSelection){
+
+    public MediaAdapter(boolean disableSelection) {
         this.disableSelection = disableSelection;
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.layout_media_item, parent, false);
-        return new MediaHolder(view,disableSelection);
+        return new MediaHolder(view, disableSelection);
 
     }
 
@@ -41,13 +43,15 @@ public class MediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof MediaHolder) {
 
-            ((MediaHolder)holder).bind(position,selectedPosition);
+            ((MediaHolder) holder).bind(position, selectedPosition);
         }
 
     }
-    public int getAmountToDelete(){
+
+    public int getAmountToDelete() {
         return selectedPosition.size();
     }
+
     @Override
     public int getItemCount() {
         return 20;

@@ -17,24 +17,25 @@ import butterknife.ButterKnife;
 
 
 public class AlbumHolder extends RecyclerView.ViewHolder {
-    private int position;
-    private int spanCount;
     @BindView(R.id.album_image)
     ImageView albumImage;
+    private int position;
+    private int spanCount;
+
     public AlbumHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this,itemView);
+        ButterKnife.bind(this, itemView);
     }
 
-    public void bind(int position, AlbumClickListener albumClickListener){
+    public void bind(int position, AlbumClickListener albumClickListener) {
         int imageResource = 0;
-        if(position%2==0){
+        if (position % 2 == 0) {
             imageResource = R.drawable.default_image;
-        }else{
+        } else {
             imageResource = R.drawable.default_image_2;
         }
         itemView.setOnClickListener(v -> {
-            if(albumClickListener!=null){
+            if (albumClickListener != null) {
                 albumClickListener.onAlbumClick();
             }
         });

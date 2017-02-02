@@ -20,13 +20,15 @@ public class VideoFragment extends BaseFragment {
 
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
-    public static VideoFragment newInstance(){
+
+    public VideoFragment() {
+
+    }
+
+    public static VideoFragment newInstance() {
         return new VideoFragment();
     }
 
-    public VideoFragment(){
-
-    }
     @Override
     public int getContentLayout() {
         return R.layout.fragment_video;

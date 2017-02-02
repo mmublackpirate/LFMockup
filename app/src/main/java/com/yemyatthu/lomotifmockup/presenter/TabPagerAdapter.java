@@ -9,7 +9,8 @@ import java.util.List;
 public class TabPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
     private List<String> titles;
-    public TabPagerAdapter(FragmentManager fm, List<Fragment> fragments,List<String> titles) {
+
+    public TabPagerAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles) {
         super(fm);
         this.fragments = fragments;
         this.titles = titles;
@@ -27,7 +28,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if(titles!=null && titles.size()>position){
+        if (titles != null && titles.size() > position) {
             return titles.get(position);
         }
         return super.getPageTitle(position);

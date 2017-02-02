@@ -31,13 +31,14 @@ public class AddPhotoVideosFragment extends BaseFragment {
     private AlbumFragment albumFragment;
     private MotifFragment motifFragment;
 
-    public static AddPhotoVideosFragment newInstance(){
+    public AddPhotoVideosFragment() {
+
+    }
+
+    public static AddPhotoVideosFragment newInstance() {
         return new AddPhotoVideosFragment();
     }
 
-    public AddPhotoVideosFragment(){
-
-    }
     @Override
     public int getContentLayout() {
         return R.layout.fragment_add_photos_videos;
@@ -53,7 +54,7 @@ public class AddPhotoVideosFragment extends BaseFragment {
         titles = new ArrayList<>();
         titles.add("Album");
         titles.add("Motif");
-        tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(),fragments,titles);
+        tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(), fragments, titles);
         pager.setAdapter(tabPagerAdapter);
         tab.setupWithViewPager(pager);
     }
@@ -61,17 +62,17 @@ public class AddPhotoVideosFragment extends BaseFragment {
     @Override
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);
-        if(albumFragment==null || motifFragment == null){
+        if (albumFragment == null || motifFragment == null) {
             return;
         }
         albumFragment.setMenuVisibility(menuVisible);
         motifFragment.setMenuVisibility(menuVisible);
     }
 
-    public void resetAllFragments(){
+    public void resetAllFragments() {
         albumFragment.resetFragment();
         motifFragment.resetFragment();
-        if(pager.getCurrentItem()>0){
+        if (pager.getCurrentItem() > 0) {
             pager.setCurrentItem(0);
         }
     }

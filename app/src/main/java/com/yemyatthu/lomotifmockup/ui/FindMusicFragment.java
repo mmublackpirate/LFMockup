@@ -30,11 +30,12 @@ public class FindMusicFragment extends BaseFragment {
 
     private MusicAdapter findMusicAdapter;
 
-    public static FindMusicFragment newInstance(){
-        return new FindMusicFragment();
+    public FindMusicFragment() {
     }
 
-    public FindMusicFragment(){}
+    public static FindMusicFragment newInstance() {
+        return new FindMusicFragment();
+    }
 
     @Override
     public int getContentLayout() {
@@ -43,18 +44,18 @@ public class FindMusicFragment extends BaseFragment {
 
     @Override
     public void initComponents() {
-        findMusicAdapter = new MusicAdapter(getActivity(),this);
+        findMusicAdapter = new MusicAdapter(getActivity(), this);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycler.setAdapter(findMusicAdapter);
     }
 
-    public void resetFragment(){
-        if(findMusicAdapter.selectedPosition != -1){
+    public void resetFragment() {
+        if (findMusicAdapter.selectedPosition != -1) {
             int tempPosition = findMusicAdapter.selectedPosition;
             findMusicAdapter.selectedPosition = -1;
             findMusicAdapter.notifyItemChanged(tempPosition);
         }
-        if(findMusicAdapter.mediaPlayer!=null && findMusicAdapter.mediaPlayer.isPlaying()) {
+        if (findMusicAdapter.mediaPlayer != null && findMusicAdapter.mediaPlayer.isPlaying()) {
             findMusicAdapter.mediaPlayer.stop();
         }
     }
@@ -62,7 +63,7 @@ public class FindMusicFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-        if(findMusicAdapter.mediaPlayer!=null && findMusicAdapter.mediaPlayer.isPlaying()) {
+        if (findMusicAdapter.mediaPlayer != null && findMusicAdapter.mediaPlayer.isPlaying()) {
             findMusicAdapter.mediaPlayer.stop();
         }
     }

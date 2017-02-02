@@ -37,8 +37,8 @@ public class AddPhotoVideoView extends FrameLayout {
         init(context);
     }
 
-    private void init(Context context){
+    private void init(Context context) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        inflater.inflate(R.layout.layout_add_photo_video_view,this,true);
+        inflater.inflate(R.layout.layout_add_photo_video_view, this, true);
     }
 }

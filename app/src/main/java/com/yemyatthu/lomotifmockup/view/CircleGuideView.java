@@ -70,19 +70,19 @@ public class CircleGuideView extends LinearLayout {
         firstProgress.setMax(100000);
         secondProgress.setMax(100000);
 
-        ObjectAnimator pickVideoAnimator =ObjectAnimator.ofFloat(pickVideo, "alpha", 0f, 1f)
+        ObjectAnimator pickVideoAnimator = ObjectAnimator.ofFloat(pickVideo, "alpha", 0f, 1f)
                 .setDuration(800);
         ObjectAnimator firstProgressAnimator = ObjectAnimator.ofInt(firstProgress, "progress", 0, 100000)
                 .setDuration(500);
-        ObjectAnimator pickMusicAnimator =ObjectAnimator.ofFloat(pickMusic, "alpha", 0f, 1f)
+        ObjectAnimator pickMusicAnimator = ObjectAnimator.ofFloat(pickMusic, "alpha", 0f, 1f)
                 .setDuration(800);
         ObjectAnimator secondProgressAnimator = ObjectAnimator.ofInt(secondProgress, "progress", 0, 100000)
                 .setDuration(500);
-        ObjectAnimator makeVideoAnimator =ObjectAnimator.ofFloat(makeVideo, "alpha", 0f, 1f)
+        ObjectAnimator makeVideoAnimator = ObjectAnimator.ofFloat(makeVideo, "alpha", 0f, 1f)
                 .setDuration(800);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setStartDelay(2000);
-        animatorSet.playSequentially(pickVideoAnimator,firstProgressAnimator,pickMusicAnimator,secondProgressAnimator,makeVideoAnimator);
+        animatorSet.playSequentially(pickVideoAnimator, firstProgressAnimator, pickMusicAnimator, secondProgressAnimator, makeVideoAnimator);
         animatorSet.start();
 
     }
